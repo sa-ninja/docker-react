@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+    - docker
+
+before_install:
+    - docker build -t justjared/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run justjared/docker-react npm run test -- --coverage
+    
